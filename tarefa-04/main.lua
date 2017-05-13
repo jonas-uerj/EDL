@@ -1,59 +1,56 @@
 ﻿function love.load ()
     
-
+--TAMANHO DA TELA:
+-- ALTURA = 600 PIXELS
+--LARGURA = 800 PIXELS
 	
 --COORDENADAS DE JOGADOR 1 E JOGADOR 2
-	p1 = { x1=780, y1=200, x2=780, y2=251, x3=730, y3=225}
-    p2 = { x1= 20, y1=300, x2=20, y2=351, x3=70, y3=325}
+p1 = { x1=780, y1=200, x2=780, y2=251, x3=730, y3=225}
+p2 = { x1= 20, y1=300, x2=20, y2=351, x3=70, y3=325}
 
 --TIROS DO JOGADOR 1	
-	p2t1 = { x1=0, y1=0 }
-	p2t2 = { x1=0, y1=0 }
-    p2t3 = { x1=0, y1=0 }
-	p2t4 = { x1=0, y1=0 }
-    p2t5 = { x1=0, y1=0 }
+p2t1 = { x1=0, y1=0 }
+p2t2 = { x1=0, y1=0 }
+p2t3 = { x1=0, y1=0 }
+p2t4 = { x1=0, y1=0 }
+p2t5 = { x1=0, y1=0 }
 	
 --TIROS DO JOGADOR 2	
-	p1t1 = { x1=0, y1=0 }
-	p1t2 = { x1=0, y1=0 }
-    p1t3 = { x1=0, y1=0 }
-	p1t4 = { x1=0, y1=0 }
-    p1t5 = { x1=0, y1=0 }
+p1t1 = { x1=0, y1=0 }
+p1t2 = { x1=0, y1=0 }
+p1t3 = { x1=0, y1=0 }
+p1t4 = { x1=0, y1=0 }
+p1t5 = { x1=0, y1=0 }
 
 --VARIÁVEIS AUXILIARES
-	i = 0
-    j = 0
+i = 0
+j = 0
 	
 
 --CONTADOR DE PONTOS	
-	pontos1 = 0
-	pontos2 = 0
+pontos1 = 0
+pontos2 = 0
 	
 --SONS DO JOGO	
-	tiro1 = love.audio.newSource("tiro1.ogg")
-	tiro2 = love.audio.newSource("tiro2.ogg")
-	tiro3 = love.audio.newSource("tiro3.ogg")
-	tiro4 = love.audio.newSource("tiro4.ogg")
-	tiro5 = love.audio.newSource("tiro5.ogg")
-	tiro6 = love.audio.newSource("tiro6.ogg")
-	tiro7 = love.audio.newSource("tiro7.ogg")
-	tiro8 = love.audio.newSource("tiro8.ogg")
-	tiro9 = love.audio.newSource("tiro9.ogg")
-	tiro10 = love.audio.newSource("tiro10.ogg")
-	comeco = love.audio.newSource("start.ogg")
-	batalha = love.audio.newSource("batalha.ogg")
-	venceu = love.audio.newSource("venceu.ogg")
-	atingiu = love.audio.newSource("atingiu.ogg")
-	love.audio.play(batalha)
- 
-    
+tiro1 = love.audio.newSource("tiro1.ogg")
+tiro2 = love.audio.newSource("tiro2.ogg")
+tiro3 = love.audio.newSource("tiro3.ogg")
+tiro4 = love.audio.newSource("tiro4.ogg")
+tiro5 = love.audio.newSource("tiro5.ogg")
+tiro6 = love.audio.newSource("tiro6.ogg")
+tiro7 = love.audio.newSource("tiro7.ogg")
+tiro8 = love.audio.newSource("tiro8.ogg")
+tiro9 = love.audio.newSource("tiro9.ogg")
+tiro10 = love.audio.newSource("tiro10.ogg")
+comeco = love.audio.newSource("start.ogg")
+batalha = love.audio.newSource("batalha.ogg")
+venceu = love.audio.newSource("venceu.ogg")
+atingiu = love.audio.newSource("atingiu.ogg")
+love.audio.play(batalha)
 end
 
 
 function love.keypressed(key)
-
-
-
 -- MOVIMENTOS DO JOGADOR 1	
 	if key == 'left' and p1.x1 > 470 then
                 p1.x1 = p1.x1 - 10
@@ -81,7 +78,7 @@ function love.keypressed(key)
 		love.audio.play(tiro2)
 		p2t2.x1 = p2.x3 + p2.x3%2
 		p2t2.y1 = p2.y3
-		elseif j == 3 then                    --p2ti É TIRO i DO JOGADOR 1 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
+		elseif j == 3 then     --p2ti É TIRO i DO JOGADOR 1 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
 		love.audio.play(tiro3)
 		p2t3.x1 = p2.x3 + p2.x3%2
 		p2t3.y1 = p2.y3
@@ -97,7 +94,7 @@ function love.keypressed(key)
 		elseif j == 5 and p2t1.x1 < 799 then
 		j = j - 1
 		end
-    end
+	end
 
 
 	
@@ -131,7 +128,7 @@ function love.keypressed(key)
 		p1t2.y1 = p1.y3
 		elseif i == 3 then
 		love.audio.play(tiro8)
-		p1t3.x1 = p1.x3 + p1.x3%2                   --p1ti É TIRO i DO JOGADOR 2 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
+		p1t3.x1 = p1.x3 + p1.x3%2  --p1ti É TIRO i DO JOGADOR 2 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
 		p1t3.y1 = p1.y3
 		elseif i == 4 then
 		love.audio.play(tiro9)
@@ -147,7 +144,7 @@ function love.keypressed(key)
 		end
 	end
 
---OBS: CADA JOGADOR SÓ PODE DAR 5 TIROS POR VEZ (O SEXTO TIRO SÓ É DISPARADO APÓS O PRIMEIRO SUMIR DA TELA)
+--OBS: CADA JOGADOR SÓ PODE DAR 5 TIROS POR VEZ. O SEXTO TIRO É O PRIMEIRO TIRO QUE JÁ SAIU DA TELA, FORMANDO ASSIM UM LOOP.
 	end
 
 -- AS COLISÕES SÃO OS TIROS QUE ACERTAM O ADVERSÁRIO
@@ -183,7 +180,6 @@ p2t5.x1 = p2t5.x1 + 2
 if collides1(p2t1, p1) or collides1(p2t2, p1) or collides1(p2t3, p1) or collides1(p2t4, p1) or collides1(p2t5, p1) then
 	love.audio.play(atingiu)
 	pontos2 = pontos2 + 1
-	
 end
 
 --TIROS DE JOGADOR 1 QUE ACERTAM JOGADOR 2 	
