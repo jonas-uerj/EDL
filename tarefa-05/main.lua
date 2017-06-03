@@ -10,7 +10,7 @@ function love.load ()
 --Propriedade: valor
 --Binding time: compilação
 --Explicação: Como ao declarar a variável "p2" ela já é inicializada, 
---seus valores são determinados em tempo de compilação.	
+--seus valores iniciais são determinados em tempo de compilação.	
 
 
 --TIROS DO JOGADOR 1	
@@ -34,7 +34,7 @@ function love.load ()
 --Nome: "j = 0"
 --Propriedade: declaração de variáveis
 --Binding time: design da linguagem
---Explicação: A linguagem Lua não permite que use ";" no final da
+--Explicação: Na linguagem Lua é FACULTATIVO o uso de ";" no final da
 --linha de execução para declaração de variáveis e outras execuções, como operações de atribuição entre outros.	
 
 --CONTADOR DE PONTOS	
