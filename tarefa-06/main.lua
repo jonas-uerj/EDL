@@ -1,4 +1,3 @@
-
 --     SÓ CONSEGUI INCLUIR 3 TIPOS DE DADOS NÃO PRIMITIVOS: REGISTRO, ARRAY E TUPLA
 
 
@@ -13,22 +12,25 @@ function love.load ()
     p2 = { x1= 20, y1=300, x2=20, y2=351, x3=70, y3=325}
 
 --TIROS DO JOGADOR 1	
-	p2t1 = { x1=0, y1=0 }
+	p2t1 = { x1=0, y1=0 }	
 	p2t2 = { x1=0, y1=0 }
-    p2t3 = { x1=0, y1=0 }
+        p2t3 = { x1=0, y1=0 }
 	p2t4 = { x1=0, y1=0 }
-    p2t5 = { x1=0, y1=0 }
+        p2t5 = { x1=0, y1=0 }
 	
 --TIROS DO JOGADOR 2	
 	p1t1 = { x1=0, y1=0 }
 	p1t2 = { x1=0, y1=0 }
-    p1t3 = { x1=0, y1=0 }
+        p1t3 = { x1=0, y1=0 }
 	p1t4 = { x1=0, y1=0 }
-    p1t5 = { x1=0, y1=0 }
+        p1t5 = { x1=0, y1=0 }
 
 --VARIÁVEIS AUXILIARES
-	i = 0
-	j = 0
+	
+	aux = {}  -- tarefa 06 ARRAY
+	aux[1] = 0
+	aux[2] = 0
+	
 
 --CONTADOR DE PONTOS
 	pontos1 = 0
@@ -36,7 +38,7 @@ function love.load ()
 
 --SONS DO JOGO
 
-	tiro = {}				-- tarefa 06 ARRAY
+	tiro = {}				
 	
 	table.insert(tiro, 1, love.audio.newSource("tiro1.ogg"))   
 	table.insert(tiro, 2, love.audio.newSource("tiro2.ogg"))
@@ -86,30 +88,30 @@ if (pontos1 < 30) and (pontos2 < 30) then          -- faz com que os jogadores n
 		p1.y2 = p1.y2 + 10
 		p1.y3 = p1.y3 + 10
 	elseif key == 'v' then
-		j = j + 1
-		if j == 1 then
+		aux[2] = aux[2] + 1
+		if aux[2] == 1 then
 		love.audio.play(tiro[1])
 		p2t1.x1 = p2.x3 + p2.x3%2
 	        p2t1.y1 = p2.y3
-		elseif j == 2 then
+		elseif aux[2] == 2 then
 		love.audio.play(tiro[2])
 		p2t2.x1 = p2.x3 + p2.x3%2
 		p2t2.y1 = p2.y3
-		elseif j == 3 then                    --p2ti É TIRO i DO JOGADOR 1 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
+		elseif aux[2] == 3 then                    --p2ti É TIRO i DO JOGADOR 1 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
 		love.audio.play(tiro[3])
 		p2t3.x1 = p2.x3 + p2.x3%2
 		p2t3.y1 = p2.y3
-		elseif j == 4 then
+		elseif aux[2] == 4 then
 		love.audio.play(tiro[4])
 		p2t4.x1 = p2.x3 + p2.x3%2
 		p2t4.y1 = p2.y3
-		elseif j == 5 and p2t1.x1 > 799 then
+		elseif aux[2] == 5 and p2t1.x1 > 799 then
 		love.audio.play(tiro[5])
 		p2t5.x1 = p2.x3 + p2.x3%2
 		p2t5.y1 = p2.y3
-		j = j - 5
-		elseif j == 5 and p2t1.x1 < 799 then
-		j = j - 1
+		aux[2] = aux[2] - 5
+		elseif aux[2] == 5 and p2t1.x1 < 799 then
+		aux[2] = aux[2] - 1
 		end
     end
 
@@ -136,30 +138,30 @@ if (pontos1 < 30) and (pontos2 < 30) then          -- faz com que os jogadores n
 	  	p2.y2 = p2.y2 + 10
 		p2.y3 = p2.y3 + 10
 	elseif key == 'm' then
-		i = i + 1
-		if i == 1 then
+		aux[1] = aux[1] + 1
+		if aux[1] == 1 then
 		love.audio.play(tiro[6])
 		p1t1.x1 = p1.x3 + p1.x3%2
 	        p1t1.y1 = p1.y3
-		elseif i == 2 then
+		elseif aux[1] == 2 then
 		love.audio.play(tiro[7])
 		p1t2.x1 = p1.x3 + p1.x3%2 
 		p1t2.y1 = p1.y3
-		elseif i == 3 then
+		elseif aux[1] == 3 then
 		love.audio.play(tiro[8])
 		p1t3.x1 = p1.x3 + p1.x3%2                   --p1ti É TIRO i DO JOGADOR 2 (SEM QUERER INVERTI O ÍNDICE DO JOGADOR E NÃO CONSEGUI CONSERTAR)
 		p1t3.y1 = p1.y3
-		elseif i == 4 then
+		elseif aux[1] == 4 then
 		love.audio.play(tiro[9])
 		p1t4.x1 = p1.x3 + p1.x3%2
 		p1t4.y1 = p1.y3
-		elseif i == 5 and p1t1.x1 < 1 then
+		elseif aux[1] == 5 and p1t1.x1 < 1 then
 		love.audio.play(tiro[10])
 		p1t5.x1 = p1.x3 + p1.x3%2
 		p1t5.y1 = p1.y3
-		i = i - 5
-		elseif i == 5 and p1t1.x1 > 1 then
-		i = i - 1
+		aux[1] = aux[1] - 5
+		elseif aux[1] == 5 and p1t1.x1 > 1 then
+		aux[1] = aux[1] - 1
 		end
 	end
 
