@@ -47,7 +47,7 @@ medias = List.map f1 Aluno
 -- b) LISTA COM OS NOMES DOS ALUNOS DE "turma" APROVADOS (["Maria", ...])
 aprovados: List String
 f2: Float -> String
-f2 y = (x>=7)
+f2 (_,y = (x>=7)
 aprovados = List.filter f2 medias
 
 -- c) MÉDIA FINAL DOS ALUNOS DE "turma" (média de todas as médias)
