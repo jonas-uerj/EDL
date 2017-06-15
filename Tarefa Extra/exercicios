@@ -41,20 +41,44 @@ turma = [ ("Joao",7,4), ("Maria",10,8), ("Pedro",10,5), ("Ana",5,8), ("Chico",9,
 
 -- a) LISTA COM AS MÉDIAS DOS ALUNOS DE "turma" ([5.5, 9, ...])
 
---medias: List Float
---medias = List.map media turma
+medias: List Float
+medias = List.map media turma
 
 -- b) LISTA COM OS NOMES DOS ALUNOS DE "turma" APROVADOS (["Maria", ...])
 
+aprovado: Aluno -> Bool
+aprovado a = ((media a) >= 7)
+
+
 aprovados: List String
-aprovados = List.filter nome turma
+aprovados = List.map nome (List.filter aprovado turma)
 
 -- c) MÉDIA FINAL DOS ALUNOS DE "turma" (média de todas as médias)
 --total: Float
 --total = ...
 
+-- d) LISTA DE ALUNOS QUE GABARITARAM A P1 ([("Maria",10,8), ...])
+
+gabaritou: Aluno -> Bool
+gabaritou (_,p1,_) = p1==10
+
+
+gab: List String
+gab = List.map nome (List.map gabaritou turma)
+
+--turma_dez_p1: Turma
+--turma_dez_p1 = ...
+
+-- e) LISTA COM OS NOMES E MEDIAS DOS ALUNOS APROVADOS ([("Maria",9), ...])
+--aprovados2: List (String,Float)
+--aprovados2 = ...
+
+-- f) LISTA COM TODAS AS NOTAS DE TODAS AS PROVAS ([7,4,10,8,...])
+--notas: List Float
+--notas = ...
+
 -- É permitido usar funções auxiliares, mas não é necessário.
 -- (As soluções são pequenas.)
-main = text (toString aprovados)
-
---main = text (toString turma1)
+--main = text (toString medias)
+--main = text (toString aprovados)
+main = text (toString gab)
